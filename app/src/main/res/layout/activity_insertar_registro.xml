@@ -92,6 +92,14 @@
             android:hint="Ubicacion"
             android:inputType="textPersonName" />
 
+        <EditText
+            android:id="@+id/fecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Fecha"
+            android:inputType="date" />
+
         <Space
             android:layout_width="match_parent"
             android:layout_height="15dp" />

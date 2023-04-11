@@ -20,7 +20,7 @@ import java.util.Map;
 public class InsertarRegistro extends AppCompatActivity {
 
     Button btn_registrar;
-    EditText nombre,apellido,tipo,detalle,pedido,cantidad,color,precio,ubicacion;
+    EditText nombre,apellido,tipo,detalle,pedido,cantidad,color,precio,ubicacion,fecha;
 
     private FirebaseFirestore mfirestore;
     @Override
@@ -40,7 +40,9 @@ public class InsertarRegistro extends AppCompatActivity {
         color = findViewById(R.id.color);
         precio = findViewById(R.id.precio);
         ubicacion = findViewById(R.id.ubicacion);
+        fecha = findViewById(R.id.fecha);
         btn_registrar = findViewById(R.id.btn_registrar);
+
 
         btn_registrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,13 +56,14 @@ public class InsertarRegistro extends AppCompatActivity {
                 String tecolor = color.getText().toString().trim();
                 String teprecio = precio.getText().toString().trim();
                 String ubication = ubicacion.getText().toString().trim();
+                String tefecha = fecha.getText().toString().trim();
 
                 if (name.isEmpty() && lastname.isEmpty() && type.isEmpty() && detail.isEmpty() && order.isEmpty() && 
-                        quantity.isEmpty() && tecolor.isEmpty() && teprecio.isEmpty() && ubication.isEmpty()) {
+                        quantity.isEmpty() && tecolor.isEmpty() && teprecio.isEmpty() && ubication.isEmpty() &&tefecha.isEmpty()) {
 
                     Toast.makeText(getApplicationContext(), "Ingresar los datos", Toast.LENGTH_SHORT).show();
                 }else {
-                    Postmtp (name,lastname,type,detail,order,quantity,tecolor,teprecio,ubication);
+                    Postmtp (name,lastname,type,detail,order,quantity,tecolor,teprecio,ubication,tefecha);
                 }
 
                 }
@@ -69,7 +72,7 @@ public class InsertarRegistro extends AppCompatActivity {
             });
         }
 
-    private void Postmtp(String name, String lastname, String type, String detail, String order, String quantity, String tecolor, String teprecio, String ubication) {
+    private void Postmtp(String name, String lastname, String type, String detail, String order, String quantity, String tecolor, String teprecio, String ubication,String tefecha) {
 
         Map<String, Object> map = new HashMap<>();
         map.put ("nombre",name);
@@ -81,6 +84,7 @@ public class InsertarRegistro extends AppCompatActivity {
         map.put ("color",tecolor);
         map.put ("precio",teprecio);
         map.put ("ubicacion",ubication);
+        map.put ("fecha",tefecha);
 
 
         mfirestore.collection("mtpdb").add(map).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
