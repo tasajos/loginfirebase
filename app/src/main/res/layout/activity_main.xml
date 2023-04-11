@@ -25,5 +25,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Registrar" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btn_listar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="LISTADO" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
