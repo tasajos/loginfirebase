@@ -92,7 +92,7 @@ public class mtpcontroller {
         this.ubicacion = ubicacion;
     }
     public String getfecha() {
-        return ubicacion;
+        return fecha;
     }
 
     public void setfecha(String fecha) {
