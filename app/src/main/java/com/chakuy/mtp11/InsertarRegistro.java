@@ -14,6 +14,13 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import android.location.Location;
+import android.content.pm.PackageManager;
+import androidx.core.app.ActivityCompat;
+import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,10 +30,17 @@ public class InsertarRegistro extends AppCompatActivity {
     EditText nombre,apellido,tipo,detalle,pedido,cantidad,color,precio,ubicacion,fecha;
 
     private FirebaseFirestore mfirestore;
+    private FusedLocationProviderClient fusedLocationClient;
+    private Location lastKnownLocation;
+
+    private static final int PERMISSION_REQUEST_CODE = 200;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insertar_registro);
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+
 
         this.setTitle("Crear Registro");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -57,6 +71,37 @@ public class InsertarRegistro extends AppCompatActivity {
                 String teprecio = precio.getText().toString().trim();
                 String ubication = ubicacion.getText().toString().trim();
                 String tefecha = fecha.getText().toString().trim();
+
+// Primero, asegurarse de tener permisos de ubicación
+                if (ActivityCompat.checkSelfPermission(InsertarRegistro.this, ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                        ActivityCompat.checkSelfPermission(InsertarRegistro.this, ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(InsertarRegistro.this, new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION}, PERMISSION_REQUEST_CODE);
+                    return;
+                }
+
+// Obtener la última ubicación conocida del usuario
+                fusedLocationClient.getLastLocation()
+                        .addOnSuccessListener(new OnSuccessListener<Location>() {
+                            @Override
+                            public void onSuccess(Location location) {
+                                if (location != null) {
+                                    // Guardar la ubicación en la variable lastKnownLocation
+                                    lastKnownLocation = location;
+                                    // Luego, llamar al método Postmtp para almacenar el registro en Firestore
+                                    Postmtp(name,lastname,type,detail,order,quantity,tecolor,teprecio,lastKnownLocation.getLatitude() + "," + lastKnownLocation.getLongitude(),tefecha);
+                                }
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                // Si falla obtener la ubicación, llamar al método Postmtp sin la ubicación
+                                Postmtp(name,lastname,type,detail,order,quantity,tecolor,teprecio,"",tefecha);
+                            }
+                        });
+
+
+
 
                 if (name.isEmpty() && lastname.isEmpty() && type.isEmpty() && detail.isEmpty() && order.isEmpty() && 
                         quantity.isEmpty() && tecolor.isEmpty() && teprecio.isEmpty() && ubication.isEmpty() &&tefecha.isEmpty()) {
