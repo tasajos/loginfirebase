@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.mtp11'
+    namespace 'com.chakuy.mtp11'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.mtp11"
+        applicationId "com.chakuy.mtp11"
         minSdk 26
         targetSdk 33
         versionCode 1
