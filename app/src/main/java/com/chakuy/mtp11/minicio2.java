@@ -2,6 +2,7 @@ package com.chakuy.mtp11;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
+import android.net.Uri;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -65,8 +66,10 @@ public class minicio2 extends AppCompatActivity {
         });
 
         descargar.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
+
                 List<MTPData> dataList = new ArrayList<>();
                 FirebaseFirestore mFirestore = FirebaseFirestore.getInstance();
                 Query query = mFirestore.collection("mtpdb");
@@ -103,12 +106,14 @@ public class minicio2 extends AppCompatActivity {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-
+                    Uri fileUri = FileProvider.getUriForFile(minicio2.this, BuildConfig.APPLICATION_ID + ".provider", new File(filePath));
+                    grantUriPermission(getPackageName(), fileUri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
                     // abrir el archivo Excel en una aplicación y compartirlo
                     Intent intent = new Intent(Intent.ACTION_SEND);
                     intent.setType("application/vnd.ms-excel");
                     intent.putExtra(Intent.EXTRA_STREAM, FileProvider.getUriForFile(minicio2.this, BuildConfig.APPLICATION_ID + ".provider", new File(filePath)));
                     intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                    intent.putExtra(Intent.EXTRA_STREAM, fileUri);
                     startActivity(Intent.createChooser(intent, "Compartir archivo"));
 
                 });
