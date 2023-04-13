@@ -30,7 +30,7 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="2.0" />
+                android:text="3.0" />
 
             <ImageView
                 android:id="@+id/imagechakuy"
@@ -49,7 +49,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Correo"
-                android:textSize="30dp"
+                android:textSize="16dp"
                 android:inputType="textPersonName" />
 
             <EditText
@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Password"
-                android:textSize="30dp"
+                android:textSize="16dp"
                 android:inputType="textPassword" />
 
             <Button
@@ -66,7 +66,7 @@
                 android:layout_width="170dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="30dp"
                 android:text="Iniciar Sesion" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
