@@ -7,12 +7,17 @@ android {
     namespace 'com.chakuy.mtp11'
     compileSdk 33
 
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+    }
+
+
     defaultConfig {
         applicationId "com.chakuy.mtp11"
         minSdk 26
         targetSdk 33
-        versionCode 301
-        versionName "3.2.1"
+        versionCode 402
+        versionName "4.0.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -42,30 +47,23 @@ dependencies {
     implementation 'com.google.firebase:firebase-functions:16.0.0'
     implementation 'com.google.apis:google-api-services-sheets:v4-rev581-1.25.0'
     implementation 'com.google.firebase:firebase-firestore:23.0.4'
-    implementation 'com.google.apis:google-api-services-sheets:v4-rev581-1.25.0'
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
-    implementation 'com.google.android.gms:play-services-drive:19.0.0'
-
-    implementation 'com.google.android.gms:play-services-drive:19.0.0'
-    implementation 'com.google.apis:google-api-services-sheets:v4-rev581-1.23.0'
 
     implementation 'com.google.api-client:google-api-client-android:1.30.9'
     implementation 'com.google.apis:google-api-services-sheets:v4-rev581-1.30.9'
-    implementation 'com.google.oauth-client:google-oauth-client-jetty:1.30.9'
+
     implementation 'com.google.http-client:google-http-client-gson:1.39.2'
     implementation 'com.google.api-client:google-api-client-gson:1.30.9'
 
     implementation 'com.google.api-client:google-api-client:1.31.3'
-    implementation 'com.google.oauth-client:google-oauth-client-jetty:1.31.3'
+
     implementation 'com.google.apis:google-api-services-sheets:v4-rev558-1.25.0'
-
-
-
 
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation platform('com.google.firebase:firebase-bom:31.3.0')
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-firestore:24.4.5'
+
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'

@@ -2,4 +2,15 @@
     <string name="app_name">saraoli</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="tipos">
+        <item>Obra</item>
+        <item>Ferretería</item>
+    </string-array>
+    <string name="seleccionar_tipo">Seleccionar tipo de producto</string>
+    <string-array name="tipos_producto">
+        <item>Obra</item>
+        <item>Ferreteria</item>
+        <!-- Agrega tantas categorías como sea necesario -->
+    </string-array>
+
 </resources>

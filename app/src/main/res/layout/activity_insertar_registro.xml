@@ -36,13 +36,21 @@
             android:hint="Apellido"
             android:inputType="textPersonName" />
 
-        <EditText
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tipo"
+            android:textSize="16sp" />
+
+        <Spinner
             android:id="@+id/tipo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Tipo"
-            android:inputType="textPersonName" />
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="10dp"
+            android:entries="@array/tipos_producto"
+            android:prompt="@string/seleccionar_tipo" />
 
         <EditText
             android:id="@+id/detalle"
@@ -98,6 +106,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Fecha"
+            android:enabled="false"
             android:inputType="date" />
 
         <Space

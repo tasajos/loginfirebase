@@ -18,11 +18,19 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import android.location.Location;
 import android.content.pm.PackageManager;
+
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+
 import androidx.core.app.ActivityCompat;
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import java.util.HashMap;
 import java.util.Map;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 public class InsertarRegistro extends AppCompatActivity {
 
@@ -42,12 +50,29 @@ public class InsertarRegistro extends AppCompatActivity {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
 
+        // Obtener fecha actual
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        String currentDate = sdf.format(new Date());
+
+        // Establecer fecha actual en EditText
+        EditText fechaEditText = findViewById(R.id.fecha);
+        fechaEditText.setText(currentDate);
+
+
+        Spinner tipoSpinner = findViewById(R.id.tipo);
+
+
+
         this.setTitle("Crear Registro");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mfirestore = FirebaseFirestore.getInstance();
         nombre = findViewById(R.id.nombre);
         apellido = findViewById(R.id.apellido);
-        tipo = findViewById(R.id.tipo);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.tipos_producto, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        tipoSpinner.setAdapter(adapter);
+
         detalle = findViewById(R.id.detalle);
         pedido = findViewById(R.id.pedido);
         cantidad = findViewById(R.id.cantidad);
@@ -63,7 +88,8 @@ public class InsertarRegistro extends AppCompatActivity {
             public void onClick(View view) {
                 String name = nombre.getText().toString().trim();
                 String lastname = apellido.getText().toString().trim();
-                String type = tipo.getText().toString().trim();
+//                String type = tipo.getText().toString().trim();
+                String type = tipoSpinner.getSelectedItem().toString().trim();
                 String detail = detalle.getText().toString().trim();
                 String order = pedido.getText().toString().trim();
                 String quantity = cantidad.getText().toString().trim();
