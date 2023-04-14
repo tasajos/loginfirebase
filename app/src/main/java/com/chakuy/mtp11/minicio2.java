@@ -9,6 +9,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.functions.FirebaseFunctions;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.functions.HttpsCallableResult;
+import com.google.android.gms.tasks.OnCompleteListener;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
@@ -23,7 +30,12 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+
+import androidx.annotation.NonNull;
 
 public class minicio2 extends AppCompatActivity {
 
@@ -33,6 +45,11 @@ public class minicio2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_minicio2);
+
+
+
+
+
 
         LinearLayout linearLayoutAgregar = findViewById(R.id.linearLayoutAgregar);
         LinearLayout listado = findViewById(R.id.listado);
@@ -69,6 +86,9 @@ public class minicio2 extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
+
+
+
 
                 List<MTPData> dataList = new ArrayList<>();
                 FirebaseFirestore mFirestore = FirebaseFirestore.getInstance();
@@ -119,5 +139,40 @@ public class minicio2 extends AppCompatActivity {
                 });
             }
         });
+
+        Map<String, Object> data = new HashMap<>();
+        data.put("nombre", "Juan");
+        data.put("apellido", "Pérez");
+        data.put("fecha", "2022-01-01");
+        data.put("tipo", "Producto 1");
+        data.put("detalle", "Descripción del producto 1");
+        data.put("pedido", "Pedido 123");
+        data.put("cantidad", 10);
+        data.put("precio", 100.0);
+        data.put("ubicacion", "Ciudad");
+        data.put("color", "Rojo");
+
+
+        FirebaseFunctions functions = FirebaseFunctions.getInstance();
+
+        functions.getHttpsCallable("myFunction")
+                .call(data)
+                .addOnCompleteListener(new OnCompleteListener<HttpsCallableResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<HttpsCallableResult> task) {
+                        if (task.isSuccessful()) {
+                            HttpsCallableResult result = task.getResult();
+                            // Procesar el resultado
+                        } else {
+                            Exception e = task.getException();
+                            // Manejar la excepción
+                        }
+                    }
+                });
+
+
+
+
+
     }
 }
