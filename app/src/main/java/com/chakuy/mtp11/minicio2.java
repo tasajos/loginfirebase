@@ -44,16 +44,12 @@ public class minicio2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_minicio2);
-
-
-
-
-
-
         LinearLayout linearLayoutAgregar = findViewById(R.id.linearLayoutAgregar);
         LinearLayout listado = findViewById(R.id.listado);
         LinearLayout descargar = findViewById(R.id.descargar);
         LinearLayout cerrarsesion = findViewById(R.id.cerrarsesion);
+        LinearLayout mapa = findViewById(R.id.mapa);
+
         linearLayoutAgregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,6 +76,15 @@ public class minicio2 extends AppCompatActivity {
                 startActivity(new Intent(minicio2.this, login.class));
             }
         });
+
+        mapa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity((new Intent(minicio2.this,mapamtp.class)));
+            }
+        });
+
+
 
         descargar.setOnClickListener(new View.OnClickListener() {
 
