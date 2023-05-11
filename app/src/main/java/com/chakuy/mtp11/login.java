@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -32,6 +33,9 @@ public class login extends AppCompatActivity {
         contrasena = findViewById(R.id.contrasena);
         correo_mail = findViewById(R.id.correo_mail);
         btn_login = findViewById(R.id.btn_login);
+
+        TextView txtversion = findViewById(R.id.txtversion);
+        txtversion.setText("Version: " + BuildConfig.VERSION_NAME);
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override

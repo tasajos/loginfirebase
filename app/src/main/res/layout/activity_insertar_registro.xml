@@ -65,8 +65,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Pedido"
-            android:inputType="textPersonName" />
+            android:hint="telefono"
+            android:inputType="textShortMessage|number|textPersonName" />
 
         <EditText
             android:id="@+id/cantidad"
