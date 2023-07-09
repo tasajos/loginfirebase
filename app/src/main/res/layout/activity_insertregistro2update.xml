@@ -1,132 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-tools:context=".insertregistro2update">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-<LinearLayout
-    android:id="@+id/linearLayout"
-    android:layout_width="0dp"
-    android:layout_height="0dp"
-    android:layout_marginStart="16dp"
-    android:layout_marginTop="16dp"
-    android:layout_marginEnd="16dp"
-    android:layout_marginBottom="16dp"
-    android:orientation="vertical"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent">
-
-    <Button
-        android:id="@+id/btn_registrar"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Obtener ubicacion" />
+        tools:context=".insertregistro2update">
 
-    <EditText
-        android:id="@+id/nombre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Nombre"
-        android:inputType="textPersonName" />
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/apellido"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Apellido"
-        android:inputType="textPersonName" />
+            <!-- Contenido de tu diseño -->
+            <Button
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Tipo"
-        android:textSize="16sp" />
+                android:id="@+id/btnalarma"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Obtener ubicacion" />
 
-    <Spinner
-        android:id="@+id/tipo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="10dp"
-        android:entries="@array/tipos_producto"
-        android:prompt="@string/seleccionar_tipo" />
+            <EditText
+                android:id="@+id/ubicacions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#2196F3"
+                android:ems="10"
+                android:enabled="false"
+                android:hint="Ubicacion"
+                android:inputType="textPersonName"
+                android:textColor="#EDE7E7"
+                android:textColorHint="#EFE8E8"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/detalle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Detalle"
-        android:inputType="textPersonName" />
+            <fragment
+                android:id="@+id/mapView2"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="203dp" />
 
-    <EditText
-        android:id="@+id/pedido"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="telefono"
-        android:inputType="textShortMessage|number|textPersonName" />
+            <EditText
+                android:id="@+id/nombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Nombre"
+                android:inputType="textPersonName" />
 
-    <EditText
-        android:id="@+id/cantidad"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Cantidad"
-        android:inputType="textPersonName" />
+            <EditText
+                android:id="@+id/apellido"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Apellido"
+                android:inputType="textPersonName" />
 
-    <EditText
-        android:id="@+id/color"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Color"
-        android:inputType="textPersonName" />
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tipo"
+                android:textSize="16sp" />
 
-    <EditText
-        android:id="@+id/precio"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Precio"
-        android:inputType="textPersonName" />
+            <Spinner
+                android:id="@+id/tipo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="10dp"
+                android:entries="@array/tipos_producto"
+                android:prompt="@string/seleccionar_tipo" />
 
-    <EditText
-        android:id="@+id/ubicacion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Ubicacion"
-        android:inputType="textPersonName" />
+            <EditText
+                android:id="@+id/detalle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Detalle"
+                android:inputType="textPersonName" />
 
-    <EditText
-        android:id="@+id/fecha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Fecha"
-        android:enabled="false"
-        android:inputType="date" />
+            <EditText
+                android:id="@+id/pedido"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="telefono"
+                android:inputType="textShortMessage|number|textPersonName" />
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="15dp" />
+            <EditText
+                android:id="@+id/cantidad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Cantidad"
+                android:inputType="textPersonName" />
 
-    <ImageButton
-        android:id="@+id/imageregis"
-        android:layout_width="88dp"
-        android:layout_height="95dp"
-        android:layout_marginHorizontal="120dp"
-        android:background="#FFFFFF"
-        android:scaleType="fitCenter"
-        app:srcCompat="@drawable/pimage" />
+            <EditText
+                android:id="@+id/color"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Color"
+                android:inputType="textPersonName" />
 
-</LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <EditText
+                android:id="@+id/precio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Precio"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/ubicacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Ubicacion"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/fecha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Fecha"
+                android:enabled="false"
+                android:inputType="date" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
+
+            <ImageButton
+                android:id="@+id/btn_registrar"
+                android:layout_width="88dp"
+                android:layout_height="95dp"
+                android:layout_marginHorizontal="120dp"
+                android:background="#FFFFFF"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/pimage" />
+
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>

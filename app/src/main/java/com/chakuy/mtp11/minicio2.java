@@ -79,7 +79,7 @@ public class minicio2 extends AppCompatActivity {
         linearLayoutAgregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(minicio2.this, InsertarRegistro.class);
+                Intent intent = new Intent(minicio2.this, insertregistro2update.class);
                 startActivity(intent);
             }
         });
