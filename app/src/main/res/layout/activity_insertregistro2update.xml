@@ -23,7 +23,9 @@
                 android:id="@+id/btnalarma"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Obtener ubicacion" />
+                android:background="@null"
+                android:text="Obtener ubicacion"
+                android:src="@drawable/mapa3"/>
 
             <EditText
                 android:id="@+id/ubicacions"
