@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="30dp"
+    android:orientation="vertical"
+    tools:context=".ubicacionmacti">
+
+    <ImageButton
+        android:id="@+id/btnalarma"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/mapa3"
+        android:background="@null"
+        android:paddingTop="20dp"
+        android:scaleType="centerInside"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:onClick="onClick"/>
+
+
+    <TextView
+        android:id="@+id/cardTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@android:color/white"
+        android:justificationMode="inter_word"
+        android:padding="16dp"
+        android:text="Tocando el boton de arriba podras mandar tu ubicacion.\n\nEsta es tu posicion de GPS, se enviara inmediatamente"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/ubicacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#2196F3"
+        android:ems="10"
+        android:hint="Ubicacion"
+        android:inputType="textPersonName"
+        android:textColor="#EDE7E7"
+        android:textColorHint="#EFE8E8"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:enabled="false"/>
+
+    <fragment
+        android:id="@+id/mapView2"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

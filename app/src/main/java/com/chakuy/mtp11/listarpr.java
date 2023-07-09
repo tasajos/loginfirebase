@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.chakuy.mtp11.adapter.mtpadapter;
 import com.chakuy.mtp11.models.mtpcontroller;
@@ -33,9 +34,15 @@ public class listarpr extends AppCompatActivity {
         setContentView(R.layout.activity_listarpr);
         mFirestore = FirebaseFirestore.getInstance();
         mRecycler = findViewById(R.id.recyclerViewMTP);
+
         mRecycler.setLayoutManager(new LinearLayoutManager(this));
 
+
+
         Query query = mFirestore.collection("mtpdb");
+
+
+
 
         FirestoreRecyclerOptions<mtpcontroller> firestoreRecyclerOptions =
                 new FirestoreRecyclerOptions.Builder<mtpcontroller>().setQuery(query,mtpcontroller.class).build();

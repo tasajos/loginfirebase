@@ -44,6 +44,7 @@ dependencies {
     implementation 'org.apache.poi:poi:5.1.0'
     implementation 'org.apache.poi:poi-ooxml:5.1.0'
     implementation 'com.google.android.gms:play-services-location:18.0.0'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
     implementation 'com.google.firebase:firebase-functions:16.0.0'
     implementation 'com.google.apis:google-api-services-sheets:v4-rev581-1.25.0'
     implementation 'com.google.firebase:firebase-firestore:23.0.4'

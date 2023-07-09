@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 
 import com.google.firebase.functions.FirebaseFunctions;
@@ -32,6 +33,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+import android.util.Log;
 
 
 import androidx.annotation.NonNull;
@@ -39,6 +46,11 @@ import androidx.annotation.NonNull;
 public class minicio2 extends AppCompatActivity {
 
     FirebaseAuth mAuth;
+    private TextView txtItem;
+    private static final String TAG = "minicio2";
+
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    CollectionReference mtpdbRef = db.collection("mtpdb");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +61,20 @@ public class minicio2 extends AppCompatActivity {
         LinearLayout descargar = findViewById(R.id.descargar);
         LinearLayout cerrarsesion = findViewById(R.id.cerrarsesion);
         LinearLayout mapa = findViewById(R.id.mapa);
+        txtItem = findViewById(R.id.txtitem);
+
+
+        mtpdbRef.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    int count = task.getResult().size();
+                    txtItem.setText(String.valueOf(count));
+                    Log.d(TAG, "Cantidad de registros: " + count);
+                } else {
+                    Log.d(TAG, "Error obteniendo documentos: ", task.getException());
+                }
+            }});
 
         linearLayoutAgregar.setOnClickListener(new View.OnClickListener() {
             @Override
