@@ -29,6 +29,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.maps.SupportMapFragment;
 
 import java.util.Arrays;
 import java.util.List;
@@ -48,7 +49,7 @@ public class ubicacionmacti extends AppCompatActivity {
         setContentView(R.layout.activity_ubicacionmacti);
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
-        this.setTitle("Emergencias");
+        this.setTitle("Registro Ubicacion");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         ubicacion = findViewById(R.id.ubicacion);
@@ -58,7 +59,7 @@ public class ubicacionmacti extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String message = ubicacion.getText().toString();
-                sendWhatsAppMessages(Arrays.asList("+59177087685"), message); // Handle button click if needed
+                sendWhatsAppMessages(Arrays.asList("+59177087685","+59163962491"), message); // Handle button click if needed
             }
         });
 
@@ -114,7 +115,7 @@ public class ubicacionmacti extends AppCompatActivity {
 
         // Create a link for opening the location in Google Maps
         String mapLink = "https://www.google.com/maps?q=" + latitude + "," + longitude;
-        String completeMessage = "Turista - Cocha....Necesito ayuda inmediata... Alerta enviada atraves de la app" + message;
+        String completeMessage = "Saraoli....Ubicacion enviada atraves de la app" + message;
 
         for (String phoneNumber : phoneNumbers) {
             // Construct the WhatsApp URL with the phone number and map link

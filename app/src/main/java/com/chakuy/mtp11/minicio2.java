@@ -106,7 +106,8 @@ public class minicio2 extends AppCompatActivity {
         mapa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity((new Intent(minicio2.this,mapamtp.class)));
+                //startActivity((new Intent(minicio2.this,mapamtp.class)));
+                startActivity((new Intent(minicio2.this,ubicacionmacti.class)));
             }
         });
 

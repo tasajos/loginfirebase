@@ -16,8 +16,8 @@ android {
         applicationId "com.chakuy.mtp11"
         minSdk 26
         targetSdk 33
-        versionCode 505
-        versionName "5.0.5"
+        versionCode 601
+        versionName "6.0.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -55,6 +55,9 @@ dependencies {
 
     implementation 'com.google.http-client:google-http-client-gson:1.39.2'
     implementation 'com.google.api-client:google-api-client-gson:1.30.9'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+
+
 
     implementation 'com.google.api-client:google-api-client:1.31.3'
 
