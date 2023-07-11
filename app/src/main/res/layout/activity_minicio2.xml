@@ -14,20 +14,41 @@
         android:layout_height="match_parent"
         android:layout_width="match_parent"
                 >
-        <RelativeLayout
-            android:layout_marginRight="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="146dp"
+            android:layout_marginRight="20dp">
 
 
             <TextView
-                android:id="@+id/txtmenu"
-                android:text="Menu"
-                android:textSize="22sp"
-                android:textColor="#FFFFFF"
+                android:id="@+id/txtitem2a"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtmenu"
+                android:layout_marginTop="53dp"
+                android:text="# Registros"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/txtregistros2a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtitem"
+                android:layout_marginTop="56dp"
+                android:text="Cantidad Registros del dia"
+                android:textColor="#F8F3F3" />
+
+            <TextView
+                android:id="@+id/txtmenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Menu"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp">
 
             </TextView>
 
@@ -39,7 +60,7 @@
                 android:layout_marginTop="6dp"
                 android:text="5 Items"
                 android:textColor="#FFFFFF"
-                android:textSize="18sp">
+                android:textSize="16sp">
 
             </TextView>
 
@@ -53,15 +74,13 @@
                 android:textColor="#F8F3F3" />
 
             <ImageView
-                android:layout_alignParentRight="true"
-                android:src="@drawable/logocha"
                 android:layout_width="62dp"
-                android:layout_height="62dp">
-
+                android:layout_height="62dp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/logocha">
 
 
             </ImageView>
-
 
 
         </RelativeLayout>

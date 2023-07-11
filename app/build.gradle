@@ -16,8 +16,8 @@ android {
         applicationId "com.chakuy.mtp11"
         minSdk 26
         targetSdk 33
-        versionCode 601
-        versionName "6.0.1"
+        versionCode 605
+        versionName "6.0.5"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
